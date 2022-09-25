@@ -1,0 +1,33 @@
+a.
+UPDATE job_id, effective_date
+FROM employee_job_table
+SET job_id=4, effective_date="2020-01-01"
+WHERE employee_id=3;
+
+b.
+SELECT 
+employee_profile_table.employee_name,
+employee_profile_table.employee_no,
+employee_job_table.effective_date,
+job_profile_table.job_name
+FROM employee
+JOIN employee_profile_table
+ON employee_profile_table.employee_id = employee_job_table.employee_id
+JOIN job_profile_table
+ON employee_job_table.job_id = job_profile_table.job_id
+
+c.
+SELECT
+employee_profile_table.employee_name,
+employee_profile_table.employee_no,
+job_profile_table.job_name
+FROM employee
+JOIN employee_job_table
+ON employee_profile_table.employee_id = employee_job_table.employee_id
+JOIN job_profile_table
+ON employee_job_table.job_id = job_profile_table.job_id
+
+d.
+DELETE job_id, effective_date
+FROM employee_job_table
+WHERE employee_id = 1 AND effective_date="2020-01-01"
